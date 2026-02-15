@@ -29,7 +29,7 @@ else:
     print("CPU")
 
 dataset = 'moffett'
-data = loadmat(f'Dataset/{dataset}.mat')
+data = loadmat(f'{dataset}.mat')
 X = torch.tensor(data['X']).type(dtype)
 M = data['M']
 M = (M - M.min(axis=0)) / (M.max(axis=0) - M.min(axis=0))
@@ -96,5 +96,6 @@ plt.subplot(3, 3, 9)
 plt.imshow(Z[2,:].view(w, h).cpu().numpy(), cmap='gray', vmin=vmin, vmax=vmax)
 plt.title('Z_3 (Ve + Wa)')
 plt.axis("off")
+
 
 plt.show()
